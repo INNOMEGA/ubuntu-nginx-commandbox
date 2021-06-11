@@ -3,6 +3,6 @@ server {
 	server_name siljanfoto.se www.siljanfoto.se;
 	root /web/siljanfoto.se/www/;
 
-	set $boxProxy http://127.0.1.2:8080;
+	set $boxProxy http://127.0.1.2:48082;
 	include commandbox.conf;
 }
