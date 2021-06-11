@@ -3,6 +3,6 @@ server {
 	server_name ssd.innomega.se;
 	root /web/ssd.innomega.se/www/;
 
-	set $boxProxy http://127.0.1.2:8080;
+	set $boxProxy http://127.0.1.2:48083;
 	include commandbox.conf;
 }
