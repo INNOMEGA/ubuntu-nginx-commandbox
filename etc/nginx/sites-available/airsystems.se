@@ -3,6 +3,6 @@ server {
 	server_name airsystems.se www.airsystems.se;
 	root /web/airsystems.se/www/;
 
-	set $boxProxy http://127.0.1.2:8080;
+	set $boxProxy http://127.0.1.2:48081;
 	include commandbox.conf;
 }
