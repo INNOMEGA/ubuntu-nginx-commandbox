@@ -23,14 +23,7 @@ function setTimeZone {
 }
 
 function getWebRoot {
-	WEB_ROOT=$(whiptail --title "$whiptitle" --backtitle "$backtitle" --inputbox "What is the full path to your web root (ex. /web)" 10 80 "/web" 3>&1 1>&2 2>&3)
-	if [ ! $? = 0 ]; then
-		confirmCancel
-		getWebRoot
-	elif [ "$WEB_ROOT" = "" ]; then
-		getWebRoot
-	fi
-
+	WEB_ROOT=/web
 	export WEB_ROOT
 }
 
@@ -47,11 +40,7 @@ function getHostName {
 }
 
 function getWhiteList {
-	WHITELIST_IP=$(whiptail --title "$whiptitle" --backtitle "$backtitle" --inputbox "Enter an IP address you'd like to whitelist for Admin (optional)" 10 80 "" 3>&1 1>&2 2>&3)
-	if [ ! $? = 0 ]; then
-		confirmCancel
-		getWhiteLlist
-	fi
+	WHITELIST_IP=92.33.240.175
 
 	export WHITELIST_IP
 }
