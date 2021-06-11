@@ -36,7 +36,7 @@ echo "Setting $CF_ENGINE Admin Password"
 cfconfig_adminPassword=$ADMIN_PASSWORD
 export cfconfig_adminPassword
 
-echo "Starting up CommandBox instance"
+echo "Starting up CommandBox instances"
 box server start name=airsystems port=48081 host=127.0.1.1 cfengine=$CF_ENGINE serverConfigFile=$WEB_ROOT/airsystems.se/server.json webroot=$WEB_ROOT/airsystems.se/www rewritesEnable=$REWRITES_ENABLED openbrowser=false saveSettings=true --force;
 box server start name=siljanfoto port=48082 host=127.0.1.1 cfengine=$CF_ENGINE serverConfigFile=$WEB_ROOT/siljanfoto.se/server.json webroot=$WEB_ROOT/siljanfoto.se/www rewritesEnable=$REWRITES_ENABLED openbrowser=false saveSettings=true --force;
 box server start name=ssd.innomega.se port=48083 host=127.0.1.1 cfengine=$CF_ENGINE serverConfigFile=$WEB_ROOT/ssd.innomega.se/server.json webroot=$WEB_ROOT/ssd.innomega.se/www rewritesEnable=$REWRITES_ENABLED openbrowser=false saveSettings=true --force;
