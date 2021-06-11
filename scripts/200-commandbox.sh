@@ -2,8 +2,8 @@
 #install commandbox
 debconf-apt-progress -- apt install default-jre -y
 debconf-apt-progress -- apt install openjdk-11-jre-headless -y
-debconf-apt-progress -- apt install openjdk-8-jre-headless -y
-debconf-apt-progress -- apt install openjdk-9-jre-headless -y
+#debconf-apt-progress -- apt install openjdk-8-jre-headless -y
+#debconf-apt-progress -- apt install openjdk-9-jre-headless -y
 debconf-apt-progress -- apt install default-jre -y
 
 #java -version
@@ -25,7 +25,7 @@ box install commandbox-dotenv
 echo "Creating web root and default sites here: " $WEB_ROOT
 [ -d $WEB_ROOT ] && echo "Using $WEB_ROOT as the webroot"
 [ ! -d $WEB_ROOT ] && mkdir -p $WEB_ROOT && echo "Creating web root here: " $WEB_ROOT
-[ ! -f $WEB_ROOT/index.cfm ] && echo "Creating a default index.cfm" && echo "<!doctype html><html><body><cfoutput><h1>Hello</h1>Current Date/Time: <em>#dateTimeFormat( now() )#</em></cfoutput></body></html>" > $WEB_ROOT/index.cfm
+[ ! -f $WEB_ROOT/index.cfm ] && echo "Creating a default index.cfm" && echo "<!doctype html><html><body><cfoutput><h1>Hello (index.cfm)</h1>Current Date/Time: <em>#dateTimeFormat( now() )#</em></cfoutput></body></html>" > $WEB_ROOT/index.cfm
 
 
 #set the web directory permissions
@@ -37,6 +37,8 @@ cfconfig_adminPassword=$ADMIN_PASSWORD
 export cfconfig_adminPassword
 
 echo "Starting up CommandBox instance"
-box server start name=default port=8080 host=127.0.1.1 cfengine=$CF_ENGINE serverConfigFile=$WEB_ROOT/server.json webroot=$WEB_ROOT rewritesEnable=$REWRITES_ENABLED openbrowser=false saveSettings=true --force;
+box server start name=airsystems port=48081 host=127.0.1.1 cfengine=$CF_ENGINE serverConfigFile=$WEB_ROOT/airsystems.se/server.json webroot=$WEB_ROOT/airsystems.se/www rewritesEnable=$REWRITES_ENABLED openbrowser=false saveSettings=true --force;
+box server start name=siljanfoto port=48082 host=127.0.1.1 cfengine=$CF_ENGINE serverConfigFile=$WEB_ROOT/siljanfoto.se/server.json webroot=$WEB_ROOT/siljanfoto.se/www rewritesEnable=$REWRITES_ENABLED openbrowser=false saveSettings=true --force;
+box server start name=ssd.innomega.se port=48083 host=127.0.1.1 cfengine=$CF_ENGINE serverConfigFile=$WEB_ROOT/ssd.innomega.se/server.json webroot=$WEB_ROOT/ssd.innomega.se/www rewritesEnable=$REWRITES_ENABLED openbrowser=false saveSettings=true --force;
 
 unset cfconfig_adminPassword
