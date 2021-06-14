@@ -19,6 +19,7 @@ debconf-apt-progress -- apt install commandbox -y
 echo "Installing CommandBox CFCONFIG"
 box install commandbox-cfconfig
 
+
 echo "Installing CommandBox DOTENV"
 box install commandbox-dotenv
 
